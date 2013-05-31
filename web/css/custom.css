@@ -75,9 +75,20 @@
 	background-size: auto 40px;
 }
 
+.app-topbar .app-button.searchbarsemi{
+	background-image: url(../img/search.png);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: auto 40px;
+}
+
 
 .app-button.searchbar{
-	right:46%;
+	right:48%;
+}
+
+.app-button.searchbarsemi{
+	right:24%;
 }
 .app-ios .app-topbar .app-button.semiright{
 	right: 20%;
@@ -89,9 +100,6 @@
 	text-align: center;
 	background-size: auto 40px;
 }
-
-
-
 
 .preview-title{
 	background-color: black;
