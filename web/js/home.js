@@ -1,9 +1,12 @@
-App.populator('home', function (page) {
+App.populator('home', function (page ,data) {
      var p = $(page);
-
-     /* for loader purposes */
+     var tag = data.val;
      var loaderElem = p.find(".app-section.loader").clone();
 
+     if (tag == null) {
+          var defaults = ["paris", "waterfall", "mountain", "photooftheday", "art", "clouds", "venice", "river","yosimite","ottawa","uwaterloo","reddit","design"];
+          tag = defaults[Math.floor(Math.random() * defaults.length)];     
+     }
      /* Refresh the home page */
      p.find('.app-title').on('click', function(){
           App.load('home', 'fade');
@@ -11,7 +14,7 @@ App.populator('home', function (page) {
 
      cards.ready(function(){
           /* Fetch data from zerver then use it [this kind of design must be used due to the asynchronous callbacks from zerver] */
-          zAPI.getData( function(meta, posts){
+          zAPI.getData( tag, function(meta, posts){
                if(posts){
                     loadslideContent(posts);
                }
@@ -37,7 +40,7 @@ App.populator('home', function (page) {
                
                cards.kik.send({
                     title: data[k].title,
-                    text: 'So funny it\'s UNREAL',
+                    text: 'Kikstagram',
                     pic: extract(data[k].description, 'img', 'src'),
                     linkData: JSON.stringify(data[k])
                });

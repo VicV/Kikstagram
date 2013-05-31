@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html manifest='cache.manifest'>
 <head>
-     <title>9KIK</title>
+     <title>Kikstagram</title>
      <link rel="kik-icon" href="icon.png">
      
      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+     <meta name="kik-more" content="kikstagram.herokuapp.com">
      <!-- Styles -->
      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400">
      <link rel="stylesheet" href="css/default.css">
@@ -19,8 +19,10 @@
      <!-- Home Page -->
      <div class="app-page" data-page="home">
           <div class="app-topbar">
-               <div class="app-title">9KIK</div>
+               <div class="app-title">Kikstagram</div>
                <div class="app-button right"></div>
+               <div class="app-button searchbar" data-target="Search"></div>
+
           </div>
 
           <div class="app-content" data-no-scroll="true">
@@ -38,11 +40,25 @@
           <div class="app-topbar">
                <div class="app-title">Preview</div>
                <div class="app-button semiright" data-target="home"></div>
+               <div class="app-button searchbar" data-target="Search"></div>
                <div class="app-button right"></div>
+
                <div class="preview-title"></div>
           </div>
           <div class="app-content">
 
+          </div>
+     </div>
+
+     <div class="app-page" data-page="Search">
+          <div class="app-topbar">
+               <div class="app-title">Kikstagram</div>
+          </div>
+          <div class="app-content" style="background-image:url(../img/bg.jpg); background-size:cover;background-position:center;">
+               <div class="app-section" style="position:absolute;top:30%;width:95%">
+                    <input class="app-input tag" placeholder="Tag/Hashtag">
+                    <div class="app-button search">Search</div>
+               </div>
           </div>
      </div>
 
@@ -52,6 +68,7 @@
      <script src="js/photo-viewer.js"></script>
      <script src="js/slide-viewer.js"></script>
      <script src="js/util.js"></script>
+     <script src="js/search.js"></script>
 
      <script src="js/home.js"></script>
      <script src="js/preview.js"></script>
