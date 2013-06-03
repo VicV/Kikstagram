@@ -4,10 +4,12 @@ App.populator('Search', function(page, data){
        p.find('.app-button.search').on('click', function(){
 
 		p.find('.app-input.tag').blur();
+		var tag = p.find('.app-input.tag').val();
+
 
 		setTimeout(function(){
 
-          App.load('home', {val:p.find('.app-input.tag').val()});
+          App.load('home', {val:tag});
 
       	}, 0); 	
      });

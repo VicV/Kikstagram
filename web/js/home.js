@@ -1,11 +1,18 @@
+var persistent;
+
 App.populator('home', function (page ,data) {
      var p = $(page);
      var tag = data.val;
+     persistent = tag;
      var loaderElem = p.find(".app-section.loader").clone();
 
      if (tag == null) {
+          if (persistent != null){
+               tag = persistent;
+          } else {
           var defaults = ["paris", "waterfall", "mountain", "photooftheday", "art", "clouds", "venice", "river","yosimite","ottawa","uwaterloo","reddit","design"];
           tag = defaults[Math.floor(Math.random() * defaults.length)];     
+     }
      }
      /* Refresh the home page */
      p.find('.app-title').on('click', function(){
@@ -20,6 +27,11 @@ App.populator('home', function (page ,data) {
                }
           });
      });
+
+String.prototype.trunc = 
+      function(n){
+          return this.substr(0,n-1)+(this.length>n?'&hellip;':'');
+      };
 
      function loadslideContent(data){
 
@@ -50,7 +62,11 @@ App.populator('home', function (page ,data) {
 
           slideViewer.on('flip', function(i){
                if (i >= 0){
-                    p.find('.titleBar').html(data[i].title);
+                    var title= data[i].title;
+                    if (title.length >= 120){
+                         title = title.trunc(119);
+                    }
+                    p.find('.titleBar').html(title);
                }else {
                     return;
                }                 

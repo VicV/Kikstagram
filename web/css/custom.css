@@ -80,7 +80,6 @@
 	background-size: auto 40px;
 }
 
-
 .app-button.searchbar{
 	right:48%;
 }
@@ -107,8 +106,6 @@
 	font-size: 17px;	
 	
 }
-
-
 
 .app-android .preview-title{
 	padding-top: 60px;
@@ -181,4 +178,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: auto 44px;
+}
+
+.app-page {
+	background-color: #EDEEEF;
 }
