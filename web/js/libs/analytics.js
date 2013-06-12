@@ -4,15 +4,13 @@
  * All rights reserved
 */
 
-
-
 /* Initializes the google analytics script after cards.ready */
 (function (w, d) {
 
 	// Create _gaq early so we can setup events
 
 	var _gaq = w._gaq = [];
-	_gaq.push(['_setAccount', 'UA-41545587-1']);
+	_gaq.push(['_setAccount', 'UA-36901363-1']);
 	_gaq.push(['_trackPageview']);
 
 	window.addEventListener('error', function (e) {

@@ -1,8 +1,7 @@
-9KIKS
+Kikstagram
 =====
-### The Unofficial 9GAG Viewer for the Kik Messenger app
+### The Unofficial Instagram Tag RSS Viewer for the Kik Messenger app
 
-View and Share pictures from 9GAG with your friends and family through this card!
+View and Share pictures from Instagram with your friends and family through this card!
 
-RSS Feed From:
-http://9gagrss.com/
+All images are owned by Instagram
