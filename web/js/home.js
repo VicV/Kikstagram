@@ -36,13 +36,11 @@ App.populator('home', function (page) {
      /* For loader purposes */
      var loaderElem = p.find(".app-section.loader").clone();
 
-
-
      cards.ready(function(){
           /* Fetch data from zerver then use it 
           [this type of design must be used due to the asynchronous callbacks from zerver] */
-
-          zAPI.getData( function(meta, posts){
+          var tag = "uwaterloo"
+          zAPI.getData(tag, function(meta, posts){
                if(posts){
                     PageBuilder(posts);
                }else{
