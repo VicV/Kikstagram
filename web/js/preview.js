@@ -18,21 +18,20 @@ App.populator('preview', function(page, params){
      p.css('background','black');
 
 
- if (params.fromKik) {
 
-     p.find('.app-button.semiright').on('click', function(){
+     p.find('.app-button.semiright.home').on('click', function(){
           _gaq.push(['_trackEvent', 'PageOpen', 'Home']);
 
                if ( cards.picker && cards.picker.cancel ) {
                     cards.picker.cancel();
                }
 
-
+          console.log("what");
           App.load('home', 'scale-out');
           App.removeFromStack(-1);
      });
 
-}
+
 
 
      /* Main Page Builder */
@@ -43,7 +42,7 @@ App.populator('preview', function(page, params){
 
           cards.kik.send({
                title: params.title,
-               text: 'So funny it\'s UNREAL',
+               text: 'New Kikstagram',
                pic: extract(params.description, 'img', 'src'),
                linkData: JSON.stringify(params)
           });
