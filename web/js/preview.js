@@ -1,5 +1,5 @@
-App.populator('preview', function(page, data){
-
+App.populator('preview', function(page, params){
+     var data = params.data;
      p = $(page);
      
      if(App.platform === "ios"){
@@ -18,6 +18,7 @@ App.populator('preview', function(page, data){
      p.css('background','black');
 
 
+ if (params.fromKik) {
 
      p.find('.app-button.semiright').on('click', function(){
           _gaq.push(['_trackEvent', 'PageOpen', 'Home']);
@@ -28,22 +29,23 @@ App.populator('preview', function(page, data){
 
 
           App.load('home', 'scale-out');
+          App.removeFromStack(-1);
      });
 
-
+}
 
 
      /* Main Page Builder */
-     var previewTitle = data.title;
-     var previewImage = extract(data.description,'img','src');
+     var previewTitle = params.title;
+     var previewImage = extract(params.description,'img','src');
 
      p.find(".app-button.right").click(function(){
 
           cards.kik.send({
-               title: data.title,
+               title: params.title,
                text: 'So funny it\'s UNREAL',
-               pic: extract(data.description, 'img', 'src'),
-               linkData: JSON.stringify(data)
+               pic: extract(params.description, 'img', 'src'),
+               linkData: JSON.stringify(params)
           });
 
           _gaq.push(['_trackEvent', 'KikContent', 'Kikked']);

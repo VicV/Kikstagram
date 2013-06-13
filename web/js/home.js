@@ -72,7 +72,7 @@ App.populator('home', function (page) {
                k = slideViewer.page();
                
                cards.kik.send({
-                    title: data[k].title,
+                    title: decodeSpecialChars(data[k].title),
                     text: 'So funny it\'s UNREAL',
                     pic: extract(data[k].description, 'img', 'src'),
                     linkData: JSON.stringify(data[k])
@@ -135,7 +135,7 @@ App.populator('home', function (page) {
                     .addClass("listwrapper");
 
                /* Enable iScroll for certain devices */
-               if ( App.platform === "android" && ( App.platformVersion >= 4 && App.platformVersion < 4.1 ) ) {
+               if ((App.platform === 'android' && App.platformVersion >= 4) || (App.platform ==='ios' && (App.platformVersion>=5 && App.platformVersion <6))) {
                     slideContent.scrollable(true);
                } else {
                     slideContent.scrollable();
@@ -166,10 +166,8 @@ App.populator('home', function (page) {
 
                               _gaq.push(['_trackEvent', 'PageOpen', 'ImagePreview']);
 
-                              App.load('preview', data[slideViewer.page()], 'scale-in');
+                              App.load('preview', data[slideViewer.page()]);
                          });
-
-
 
                slideContent.scrollableNode().append(postSection);
                return slideContent[0];
