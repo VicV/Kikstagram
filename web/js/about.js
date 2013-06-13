@@ -6,8 +6,6 @@ App.populator('about', function (page) {
 		_gaq.push(['_trackEvent', 'PageOpen', 'Home']);
 	});
 
-
-     
 },
 	function (page) {
   		if (App.platform === 'android'){
