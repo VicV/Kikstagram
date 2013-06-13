@@ -53,8 +53,6 @@ App.populator('home', function (page) {
 
      function PageBuilder(data){
 
-
-
           /* Unreal SlideViewer
           - some maths to make slideViewer to function incoherent with topBar & title-bar-text;
           */
@@ -65,7 +63,7 @@ App.populator('home', function (page) {
           wrapper.style.height = height + "px";
           
 
-          var slideViewer = new SlideViewer(wrapper, source,{startAt: 0, length: 30});
+          var slideViewer = new SlideViewer(wrapper, source,{startAt: 0, length: data.length});
 
           p.find(".app-button.right.kik").click(function(){
 
@@ -82,12 +80,17 @@ App.populator('home', function (page) {
 
           });
 
-
           slideViewer.on('flip', function(i){
                if (i >= 0){
+
+                    var title = '';
+                    if(data[i] != null && data[i].title != null){
+                         title = data[i].title;
+                    }
+
                     _gaq.push(['_trackEvent', 'ContentSliding', 'slide']);
 
-                    p.find('.title-bar-text').html(data[i].title);
+                    p.find('.title-bar-text').html(title);
                }else {
                     return;
                }                 
@@ -121,7 +124,12 @@ App.populator('home', function (page) {
                     var postDate = data[i].pubDate.substr(0, data[i].pubDate.length - 14);
                */
 
-               var postImage = extract(data[i].description,'img','src');
+               var description = '';
+               if(data[i] != null && data[i].description != null) {
+                    description = data[i].description;
+               }
+
+               var postImage = extract(description,'img','src');
 
                p.find('.title-bar-text').clickable().on('click', function(){
                          _gaq.push(['_trackEvent', 'BrowserOpen', 'OpenedTitle']);
