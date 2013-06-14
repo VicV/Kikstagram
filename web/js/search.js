@@ -1,6 +1,5 @@
 App.populator('search', function (page) {
-	console.log("yo");
-	p = $(page);
+	var p = $(page);
 	lastPage = 0;
 	p.find('.app-button.search').on('click', function(){
 		var input = p.find('.app-input.tag').val();

@@ -1,6 +1,6 @@
 App.populator('preview', function(page, params){
      var data = params.data;
-     p = $(page);
+     var p = $(page);
      
      if(App.platform === "ios"){
      
@@ -20,14 +20,13 @@ App.populator('preview', function(page, params){
 
 
      p.find('.app-button.rightLevel1.home').on('click', function(){
-          _gaq.push(['_trackEvent', 'PageOpen', 'Home']);
 
                if ( cards.picker && cards.picker.cancel ) {
                     cards.picker.cancel();
                     App.back();
                     App.removeFromStack(-1);
                } else {
-                    App.load('search', 'scale-out');
+
                }
      });
 
