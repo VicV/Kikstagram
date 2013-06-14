@@ -38,6 +38,7 @@ App.populator('home', function (page, data) {
 
      });
 
+
      function PageBuilder(data){
 
           /* Unreal SlideViewer
@@ -57,9 +58,13 @@ App.populator('home', function (page, data) {
                App.dialog({title:"No results for that tag", text: "Please try again"})
           }
 
+          var slidePage = slideViewer.page();
+
+          console.log(data[slidePage].title);
+
           p.find(".app-button.right.kik").click(function(){
 
-               k = slideViewer.page();
+               var k = slideViewer.page();
                
                cards.kik.send({
                     title: decodeSpecialChars(data[k].title),
@@ -79,13 +84,15 @@ App.populator('home', function (page, data) {
                     var title = '';
                     if(data[i] != null && data[i].title != null){
                          title = data[i].title;
+                         var upTitle = title;
+                         if(upTitle.toUpperCase().indexOf("KIKSTAGRAM: ") > -1){
+                              title = '<a src="http://kik.com">'+title+'</a>'
+                              console.log(title);
+                         }
                     }
 
                     _gaq.push(['_trackEvent', 'ContentSliding', 'slide']);
 
-                    if (title.toUpperCase().indexOf("KIKSTAGRAM: ") !== 0){
-                         console.log("hoorah");
-                    }
                     p.find('.title-bar-text').html(title);
 
                }else {
@@ -93,20 +100,10 @@ App.populator('home', function (page, data) {
                }                 
           });
 
-
-          /*
-          - Force dat SlideViewer to set the title of the first post
+          /*  Force dat SlideViewer to set the title of the first post
           */
           p.find('.title-bar-text')
-               .html(data[0].title)
-               .clickable().on('click', function(){
-
-                    _gaq.push(['_trackEvent', 'BrowserOpen', 'OpenedTitle']);
-                    cards.browser.open(data[0].link);
-
-               });
-
-
+               .html(data[0].title);
 
           function source(i){
 
@@ -114,7 +111,6 @@ App.populator('home', function (page, data) {
                if ( i < 0 ) {
                     return;
                }
-
 
                /* For Future References if uri & publish dat is needed:
                     var postLink = data[i].link;
@@ -127,13 +123,6 @@ App.populator('home', function (page, data) {
                }
 
                var postImage = extract(description,'img','src');
-
-               p.find('.title-bar-text').clickable().on('click', function(){
-                         _gaq.push(['_trackEvent', 'BrowserOpen', 'OpenedTitle']);
-                         cards.browser.open(data[slideViewer.page()].link);
-
-               });
-
 
                /* the main slideViewer content */
                var slideContent = $('<div />')

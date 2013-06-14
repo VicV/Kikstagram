@@ -160,6 +160,9 @@
 
 .app-android .app-topbar .app-button.rightLevel1{
 	right: 20%;
+	background-image: none;
+	color: #dde5ec;
+	width: 20%;
 }
 
 .app-android .app-topbar .app-button.rightLevel2{
