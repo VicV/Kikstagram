@@ -100,9 +100,7 @@
 
 .app-title.left{
 	text-align: left;
-	padding-left: 10px;
 }
-
 
 .app-topbar .app-button{
 	width: 20%;
@@ -177,8 +175,6 @@
 	background-repeat: no-repeat;
 	background-size: auto 25px;
 }
-
-
 .app-button[data-back]{
 	color: white;
 	border-right: 1px solid #1c5380;
@@ -227,7 +223,6 @@
 	vertical-align: middle;
 }
 
-
 .app-list li{
 	padding-top: 10px;
 	text-align: center;
@@ -247,4 +242,3 @@
 	padding: 15px;
 	font-weight: normal;
 }
-

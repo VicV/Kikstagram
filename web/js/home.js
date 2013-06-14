@@ -9,31 +9,12 @@ App.populator('home', function (page, data) {
      
      }
 
-     /* Button Functionalities
-          1. page transition
-          2. page refresh
-      */
-     p.find('.app-button.rightLevel0.about').on('click', function(){
-
-          _gaq.push(['_trackEvent', 'PageOpen', 'About']);
-          App.load('about', 'fade');
-     
-     });
-
-     p.find('.app-title').on('click', function(){
-     
-          _gaq.push(['_trackEvent', 'PageOpen', 'Refresh']);
-          App.load('home', 'fade');
-     
-     });
-
      p.find('.app-button.rightLevel0.search').on('click', function(){
 
           _gaq.push(['_trackEvent', 'PageOpen', 'Search']);
           App.back();
      
      });
-
      /* For loader purposes */
      var loaderElem = p.find(".app-section.loader").clone();
 
@@ -67,8 +48,7 @@ App.populator('home', function (page, data) {
           var height = (p.width());
           wrapper.innerHTML = '';
           wrapper.style.height = height + "px";
-          
-
+     
           var slideViewer = new SlideViewer(wrapper, source,{startAt: lastPage, length: data.length});
 
           if (data.length == 0) {
@@ -107,6 +87,7 @@ App.populator('home', function (page, data) {
                          console.log("hoorah");
                     }
                     p.find('.title-bar-text').html(title);
+
                }else {
                     return;
                }                 
