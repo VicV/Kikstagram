@@ -1,4 +1,4 @@
-App.populator('home', function (page) {
+App.populator('home', function (page, data) {
      var p = $(page);
 
 
@@ -13,7 +13,7 @@ App.populator('home', function (page) {
           1. page transition
           2. page refresh
       */
-     p.find('.app-button.semiright.about').on('click', function(){
+     p.find('.app-button.rightLevel1.about').on('click', function(){
 
           _gaq.push(['_trackEvent', 'PageOpen', 'About']);
           App.load('about', 'fade');
@@ -27,7 +27,12 @@ App.populator('home', function (page) {
      
      });
 
+     p.find('.app-button.rightLevel2.search').on('click', function(){
 
+          _gaq.push(['_trackEvent', 'PageOpen', 'Search']);
+          App.load('search', 'fade');
+     
+     });
 
 
 
@@ -40,6 +45,10 @@ App.populator('home', function (page) {
           /* Fetch data from zerver then use it 
           [this type of design must be used due to the asynchronous callbacks from zerver] */
           var tag = "uwaterloo"
+          if(data != null && data.searchInput != null) {
+               tag = data.searchInput;
+          }
+
           zAPI.getData(tag, function(meta, posts){
                if(posts){
                     PageBuilder(posts);

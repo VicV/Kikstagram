@@ -116,8 +116,16 @@
 	background-image: url(../img/noise-1.png), linear-gradient(top, #517fa4, #306088);
 }
 
+.app-topbar .app-button.rightLevel0{
+	top: 0;
+	right: 0%;
+	text-align: center;
+	border-left: 1px solid #1c5380;
+	border-right: 1px solid #1c5380;
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
+}
 
-.app-topbar .app-button.semiright{
+.app-topbar .app-button.rightLevel1{
 	top: 0;
 	right: 25%;
 	text-align: center;
@@ -126,6 +134,15 @@
 	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
 }
 
+
+.app-topbar .app-button.rightLevel2{
+	top: 0;
+	right: 50%;
+	text-align: center;
+	border-left: 1px solid #1c5380;
+	border-right: 1px solid #1c5380;
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
+}
 
 .app-topbar .app-button.right.kik {
 	background-position:center;
@@ -140,11 +157,19 @@
 	padding: 0;
 }
 
-.app-android .app-topbar .app-button.semiright{
+.app-android .app-topbar .app-button.rightLevel0{
+	right: 0%;
+}
+
+.app-android .app-topbar .app-button.rightLevel1{
 	right: 20%;
 }
 
-.app-android .app-topbar .app-button.semiright.home{
+.app-android .app-topbar .app-button.rightLevel2{
+	right: 40%;
+}
+
+.app-android .app-topbar .app-button.rightLevel0.home{
 	background-image: url(../img/home.png);
 	background-position:center;
 	background-repeat: no-repeat;
@@ -212,5 +237,4 @@
 	padding: 15px;
 	font-weight: normal;
 }
-
 

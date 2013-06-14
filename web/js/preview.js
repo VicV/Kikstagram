@@ -19,7 +19,7 @@ App.populator('preview', function(page, params){
 
 
 
-     p.find('.app-button.semiright.home').on('click', function(){
+     p.find('.app-button.rightLevel1.home').on('click', function(){
           _gaq.push(['_trackEvent', 'PageOpen', 'Home']);
 
                if ( cards.picker && cards.picker.cancel ) {
