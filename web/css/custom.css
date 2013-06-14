@@ -4,7 +4,8 @@
 }
 
 .title-bar-container{
-	position: relative;
+	position: absolute;
+	bottom: 0;
 	text-align: center;
 	height: 44px;
 	width: 100%;
@@ -24,7 +25,6 @@
 
     line-height: 120%;
 }
-
 
 .title-bar-text{
 	display: table-cell;
@@ -170,10 +170,15 @@
 }
 
 .app-android .app-topbar .app-button.rightLevel0.home{
-	background-image: url(../img/home.png);
 	background-position:center;
 	background-repeat: no-repeat;
 	background-size: auto 35px;
+}
+
+.app-button[data-back]{
+	color: white;
+	border-right: 1px solid #1c5380;
+	box-shadow: -1px 0 #333 inset, 1px 0 #1c5380 inset;
 }
 
 .app-android .app-topbar .app-button.back{
@@ -181,6 +186,7 @@
 	border-right: 1px solid #1c5380;
 	box-shadow: -1px 0 #333 inset, 1px 0 #1c5380 inset;
 }
+
 
 .preview-title-container{
 	position: relative;

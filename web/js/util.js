@@ -1,3 +1,6 @@
+
+var persistentTag = "uwaterloo";
+var lastPage = 0;
 // HTML Tag Extractor
 function extract(data, tag, attr){
 	var html = $("<div>" + data + "</div>");

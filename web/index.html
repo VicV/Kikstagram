@@ -22,9 +22,7 @@
           <div class="app-page" data-page="home">
                <div class="app-topbar">
                     <div class="app-title left">Kikstagram</div>
-                    <div class="app-button rightLevel2 search">Search</div>
-                    <div class="app-button rightLevel1 about">About</div>
-                    <div class="app-button right kik" style="background-image: url( img/kik.png )"></div>
+                    <div class="app-button rightLevel0 search">Search</div>
                </div>
 
                <div class="app-content" data-no-scroll="true">
@@ -41,7 +39,7 @@
           <div class="app-page" data-page="preview">
                <div class="app-topbar">
                     <div class="app-title left">Preview</div>
-                    <div class="app-button rightLevel1 home"></div>
+                    <div class="app-button rightLevel1 home" data-back="true">Back</div>
                     <div class="app-button right kik" style= "background-image: url( img/kik.png )"></div>
 
                     <div class="preview-title-container">
@@ -57,8 +55,8 @@
           <!-- Search Page -->
           <div class="app-page" data-page="search">
                <div class="app-topbar">
-                    <div class="app-title left">Kikstagram Search</div>
-                    <div class="app-button rightLevel0 home"></div>
+                    <div class="app-title left">Kikstagram</div>
+                    <div class="app-button rightLevel0 about">About</div>
                </div>
                <div class="app-content" style="background-image:url(../img/bg1.png); background-size:cover;background-position:center;">
                     <div class="app-section" style="position:absolute;top:30%;width:95%">
@@ -73,7 +71,7 @@
           <div class="app-page" data-page="about">
                <div class="app-topbar">
                     <div class="app-title left">About</div>
-                    <div class="app-button rightLevel0 home"></div>
+                    <div class="app-button rightLevel0 back">back</div>
                </div>
 
                <div class ="app-content">
@@ -87,7 +85,7 @@
 
                               <label>Navigation</label>
                               <li>
-                                   <p>Simply <b>SCROLL SIDEWISE</b> from your current image to get to the next image!</p>
+                                   <p>Simply search for a tag from your current image to get to the next image!</p>
                               </li>
 
                               <label>Refreshing</label>
@@ -127,12 +125,9 @@
           }
      });
 
+
      if(cards.browser && cards.browser.linkData){
-          _gaq.push(['_trackEvent', 'PageOpen', 'FromKIKMesage']);
-          App.load('preview', {
-               fromKik : true ,
-               data    : cards.browser.linkData
-          });
+          App.load('preview', cards.browser.linkData);
      }else{
           App.load('home');
      }

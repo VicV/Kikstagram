@@ -24,15 +24,12 @@ App.populator('preview', function(page, params){
 
                if ( cards.picker && cards.picker.cancel ) {
                     cards.picker.cancel();
+                    App.load('home', 'scale-out');
+                    App.removeFromStack(-1);
+               } else {
+                    App.load('search', 'scale-out');
                }
-
-          console.log("what");
-          App.load('home', 'scale-out');
-          App.removeFromStack(-1);
      });
-
-
-
 
      /* Main Page Builder */
      var previewTitle = params.title;
@@ -58,10 +55,6 @@ App.populator('preview', function(page, params){
           automaticTitles: false
      });
      
-},
-     function (page, data) {
-          if (App.platform === 'android'){
-               cards.browser.unbindBack(handleBackButton);
-          }
-     }
+}
+     
 );

@@ -13,7 +13,7 @@ App.populator('home', function (page, data) {
           1. page transition
           2. page refresh
       */
-     p.find('.app-button.rightLevel1.about').on('click', function(){
+     p.find('.app-button.rightLevel0.about').on('click', function(){
 
           _gaq.push(['_trackEvent', 'PageOpen', 'About']);
           App.load('about', 'fade');
@@ -27,16 +27,12 @@ App.populator('home', function (page, data) {
      
      });
 
-     p.find('.app-button.rightLevel2.search').on('click', function(){
+     p.find('.app-button.rightLevel0.search').on('click', function(){
 
           _gaq.push(['_trackEvent', 'PageOpen', 'Search']);
           App.load('search', 'fade');
      
      });
-
-
-
-
 
      /* For loader purposes */
      var loaderElem = p.find(".app-section.loader").clone();
@@ -44,9 +40,10 @@ App.populator('home', function (page, data) {
      cards.ready(function(){
           /* Fetch data from zerver then use it 
           [this type of design must be used due to the asynchronous callbacks from zerver] */
-          var tag = "uwaterloo"
+          var tag = persistentTag;
           if(data != null && data.searchInput != null) {
                tag = data.searchInput;
+               persistentTag = tag;
           }
 
           zAPI.getData(tag, function(meta, posts){
@@ -72,7 +69,7 @@ App.populator('home', function (page, data) {
           wrapper.style.height = height + "px";
           
 
-          var slideViewer = new SlideViewer(wrapper, source,{startAt: 0, length: data.length});
+          var slideViewer = new SlideViewer(wrapper, source,{startAt: lastPage, length: data.length});
 
           p.find(".app-button.right.kik").click(function(){
 
@@ -91,6 +88,7 @@ App.populator('home', function (page, data) {
 
           slideViewer.on('flip', function(i){
                if (i >= 0){
+                    lastPage = i;
 
                     var title = '';
                     if(data[i] != null && data[i].title != null){
