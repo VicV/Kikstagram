@@ -4,8 +4,7 @@
 }
 
 .title-bar-container{
-	position: absolute;
-	bottom: 0;
+	
 	text-align: center;
 	height: 44px;
 	width: 100%;
@@ -169,11 +168,16 @@
 	right: 40%;
 }
 
-.app-android .app-topbar .app-button.rightLevel0.home{
+.app-button.rightLevel0.search{
+		width: 13%;
+
+	background-image: url('../img/search.png');
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
 	background-position:center;
 	background-repeat: no-repeat;
-	background-size: auto 35px;
+	background-size: auto 25px;
 }
+
 
 .app-button[data-back]{
 	color: white;

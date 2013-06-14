@@ -24,7 +24,7 @@ App.populator('preview', function(page, params){
 
                if ( cards.picker && cards.picker.cancel ) {
                     cards.picker.cancel();
-                    App.load('home', 'scale-out');
+                    App.back();
                     App.removeFromStack(-1);
                } else {
                     App.load('search', 'scale-out');
@@ -32,7 +32,12 @@ App.populator('preview', function(page, params){
      });
 
      /* Main Page Builder */
-     var previewTitle = params.title;
+     var previewTitle
+     if (params.title == null || params.title.length == 0 ){
+          previewTitle = "";
+     } else {
+          previewTitle = params.title.trunc(50);
+     }
      var previewImage = extract(params.description,'img','src');
 
      p.find(".app-button.right").click(function(){

@@ -30,7 +30,7 @@ App.populator('home', function (page, data) {
      p.find('.app-button.rightLevel0.search').on('click', function(){
 
           _gaq.push(['_trackEvent', 'PageOpen', 'Search']);
-          App.load('search', 'fade');
+          App.back();
      
      });
 
@@ -64,12 +64,18 @@ App.populator('home', function (page, data) {
           */
           var wrapper = page.querySelector('.wrapper');
 
-          var height = (p.height() - (p.find(".title-bar-text").height() + p.find(".app-topbar").height()));
+          var height = (p.width());
           wrapper.innerHTML = '';
           wrapper.style.height = height + "px";
           
 
           var slideViewer = new SlideViewer(wrapper, source,{startAt: lastPage, length: data.length});
+
+          if (data.length == 0) {
+               _gaq.push(['_trackEvent', 'EmptySearch', 'Search']);
+               App.back();
+               App.dialog({title:"No results for that tag", text: "Please try again"})
+          }
 
           p.find(".app-button.right.kik").click(function(){
 
@@ -97,6 +103,9 @@ App.populator('home', function (page, data) {
 
                     _gaq.push(['_trackEvent', 'ContentSliding', 'slide']);
 
+                    if (title.toUpperCase().indexOf("KIKSTAGRAM: ") !== 0){
+                         console.log("hoorah");
+                    }
                     p.find('.title-bar-text').html(title);
                }else {
                     return;
