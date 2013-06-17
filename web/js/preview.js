@@ -18,12 +18,12 @@ App.populator('preview', function(page, params){
 
 
      p.find('.app-button.rightLevel1.back').on('click', function(){
-          if ( cards.picker ) {
-               cards.picker.cancel();
+          if ( cards.kik.returnToConversation && !isDone) {
+               isDone = true;
                App.load('search', App.getReverseTransition());
                App.removeFromStack(-1);
+
           } else {
-               
           }
      });
 
