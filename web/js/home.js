@@ -11,7 +11,6 @@ App.populator('home', function (page, data) {
 
      p.find('.app-button.rightLevel0.search').on('click', function(){
 
-          _gaq.push(['_trackEvent', 'PageOpen', 'Search']);
           App.back();
      
      });
@@ -31,11 +30,14 @@ App.populator('home', function (page, data) {
                if(posts){
                     PageBuilder(posts);
                }else{
-                    /* Failure state */
+                    App.dialog({title:"Error retrieving data", text: "Please try again"})
+                    App.back();
                     return;
                }
+          }).error(function(){
+               App.dialog({title:"Error retrieving data", text: "Please try again"})
+               App.back();
           });
-
      });
 
 
