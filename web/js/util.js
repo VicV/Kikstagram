@@ -28,3 +28,16 @@ String.prototype.trunc =
       function(n){
           return this.substr(0,n-1)+(this.length>n?'&hellip;':'');
       };
+
+
+function removeFirst(input) {
+	console.log("removing");
+	var s = (input.length && input[0] == '#') ? input.slice(1) : input;
+	console.log("new: "+s);
+	return s;
+};
+
+var getNthWord = function(string, n){
+    var words = string.split(" ");
+    return words[n-1];
+}

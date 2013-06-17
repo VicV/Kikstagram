@@ -31,15 +31,14 @@ App.populator('home', function (page, data) {
                     PageBuilder(posts);
                }else{
                     App.back();
-                    App.dialog({title:"Error retrieving data", text: "Please try again"});
+                    App.dialog({title:"No results for tag", text: "Please try again"});
                     _gaq.push(['_trackEvent', 'Error', 'Feedparser']);
                     return;
                }
           }).error(function(){
                App.back();
-               App.dialog({title:"Error retrieving data", text: "Please try again"})
+               App.dialog({title:"No results for tag", text: "Please try again"})
                _gaq.push(['_trackEvent', 'Error', 'Feedparser']);
-               console.log("error error");
 
           });
      });
@@ -89,7 +88,6 @@ App.populator('home', function (page, data) {
                          var upTitle = title;
                          if(upTitle.toUpperCase().indexOf("KIKSTAGRAM: ") > -1){
                               title = '<a src="http://kik.com">'+title+'</a>'
-                              console.log(title);
                          }
                     }
 
@@ -130,13 +128,6 @@ App.populator('home', function (page, data) {
                var slideContent = $('<div />')
                     .addClass("listwrapper");
 
-               /* Enable iScroll for certain devices */
-               if ((App.platform === 'android' && App.platformVersion >= 4) || (App.platform ==='ios' && (App.platformVersion>=5 && App.platformVersion <6))) {
-                    slideContent.scrollable(true);
-               } else {
-                    slideContent.scrollable();
-               }
-
                     var postSection = $('<div />')
                          .addClass('app-section')
                          .css('text-align', 'center')
@@ -160,12 +151,10 @@ App.populator('home', function (page, data) {
 
                          img.clickable().on('click', function(){
 
-                              _gaq.push(['_trackEvent', 'PageOpen', 'ImagePreview']);
-
                               App.load('preview', data[slideViewer.page()]);
                          });
 
-               slideContent.scrollableNode().append(postSection);
+               slideContent.append(postSection);
                return slideContent[0];
           }
      }
