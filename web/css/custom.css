@@ -173,7 +173,7 @@
 .app-button.rightLevel0.search{
 		width: 13%;
 
-	background-image: url('../img/search.png');
+	background-image: url(../img/search.png?inline=1);
 	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
 	background-position:center;
 	background-repeat: no-repeat;
