@@ -1,6 +1,6 @@
 App.populator('home', function (page, data) {
      var p = $(page);
-
+       p.find('.app-button.rightLevel0.search').focus();
 
      if(App.platform === "ios" && App.platformVersion <= 5){
      

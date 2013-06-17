@@ -3,7 +3,7 @@ App.populator('search', function (page) {
 	lastPage = 0;
 	p.find('.app-button.search').on('click', function(){
 		var input = p.find('.app-input.tag').val().toLowerCase();
-		var str = "This is a sentence"; 
+		console.log(input);
 		var matches = input.split(/\b/);
 		input = matches.length > 0 ? matches[0] : "";
 		var data = { searchInput : input };
@@ -12,6 +12,7 @@ App.populator('search', function (page) {
 			_gaq.push(['_trackEvent', 'Empty Search', 'Search']);
 		} else {				
 			lastPage=0;
+			p.find('.app-input.tag').blur();
 	        App.load('home', data, 'fade');
     	}
 	});

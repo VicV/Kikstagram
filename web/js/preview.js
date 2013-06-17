@@ -4,8 +4,6 @@ App.populator('preview', function(page, params){
      
      if(App.platform === "ios"){
      
-          p.find('.app-topbar .app-button.semiright.home').text('Home');
-
           if(App.platformVersion <= 5){
                p.find('.app-topbar .app-title').css('font-family', 'helvetica');
                p.find('.app-topbar .title-bar-container').css('font-family', 'helvetica');
@@ -19,15 +17,14 @@ App.populator('preview', function(page, params){
 
 
 
-     p.find('.app-button.rightLevel1.home').on('click', function(){
-
-               if ( cards.picker && cards.picker.cancel ) {
-                    cards.picker.cancel();
-                    App.back();
-                    App.removeFromStack(-1);
-               } else {
-
-               }
+     p.find('.app-button.rightLevel1.back').on('click', function(){
+          if ( cards.picker ) {
+               cards.picker.cancel();
+               App.load('search', App.getReverseTransition());
+               App.removeFromStack(-1);
+          } else {
+               
+          }
      });
 
      /* Main Page Builder */
