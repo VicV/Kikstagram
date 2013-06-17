@@ -3,8 +3,7 @@ App.populator('about', function (page) {
 	var p = $(page);
 
 	p.find('.app-button.rightLevel0.back').on('click', function(){
-		_gaq.push(['_trackEvent', 'PageOpen', 'Home']);
-        App.load('home', 'fade');
+		App.back();
 
 	});
 
