@@ -30,13 +30,17 @@ App.populator('home', function (page, data) {
                if(posts){
                     PageBuilder(posts);
                }else{
-                    App.dialog({title:"Error retrieving data", text: "Please try again"})
                     App.back();
+                    App.dialog({title:"Error retrieving data", text: "Please try again"});
+                    _gaq.push(['_trackEvent', 'Error', 'Feedparser']);
                     return;
                }
           }).error(function(){
-               App.dialog({title:"Error retrieving data", text: "Please try again"})
                App.back();
+               App.dialog({title:"Error retrieving data", text: "Please try again"})
+               _gaq.push(['_trackEvent', 'Error', 'Feedparser']);
+               console.log("error error");
+
           });
      });
 
@@ -55,14 +59,10 @@ App.populator('home', function (page, data) {
           var slideViewer = new SlideViewer(wrapper, source,{startAt: lastPage, length: data.length});
 
           if (data.length == 0) {
-               _gaq.push(['_trackEvent', 'EmptySearch', 'Search']);
+               _gaq.push(['_trackEvent', 'Empty Search', 'After Search']);
                App.back();
                App.dialog({title:"No results for that tag", text: "Please try again"})
           }
-
-          var slidePage = slideViewer.page();
-
-          console.log(data[slidePage].title);
 
           p.find(".app-button.right.kik").click(function(){
 
