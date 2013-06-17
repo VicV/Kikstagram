@@ -25,12 +25,13 @@
                     <div class="app-button rightLevel0 search"></div>
                </div>
 
-               <div class="app-content">
+               <div class="app-content" data-no-scroll="true">
                     
                     <div class="wrapper">
                          <div class="app-section loader"></div>
+                         <div class="title-bar-container"><p class="title-bar-text"></p></div>
+
                     </div>
-                    <div class="title-bar-container"><p class="title-bar-text"></p></div>
                </div>
           </div>
 
@@ -122,6 +123,7 @@
      <script src="js/about.js"></script>
      <script src="js/store.js"></script>
      <script src="zerver/zAPI.js"></script>
+
      <!-- /zerver -->
 
      <script> 
@@ -132,8 +134,8 @@
      });
 
      if(cards.browser && cards.browser.linkData){
-          App.load('preview', cards.browser.linkData);
           isDone = false;
+          App.load('preview', cards.browser.linkData);
      }else{
           App.load('search');
      }

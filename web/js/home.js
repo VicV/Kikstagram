@@ -53,7 +53,9 @@ App.populator('home', function (page, data) {
 
           var height = (p.width());
           wrapper.innerHTML = '';
-          wrapper.style.height = height + "px";
+          var newTitle = p.find('.title-bar-text').clone().remove();
+          wrapper.style.height = 100 + "%";
+
      
           var slideViewer = new SlideViewer(wrapper, source,{startAt: lastPage, length: data.length});
 
@@ -93,17 +95,19 @@ App.populator('home', function (page, data) {
 
                     _gaq.push(['_trackEvent', 'ContentSliding', 'slide']);
 
-                    p.find('.title-bar-text').html(title);
-
+/*                    p.find('.title-bar-text').html(title);
+*/
                }else {
                     return;
                }                 
           });
 
-          /*  Force dat SlideViewer to set the title of the first post
-          */
+/*            Force dat SlideViewer to set the title of the first post
+          
           p.find('.title-bar-text')
-               .html(data[0].title);
+               .html(data[0].title);*/
+
+
 
           function source(i){
 
@@ -122,15 +126,27 @@ App.populator('home', function (page, data) {
                     description = data[i].description;
                }
 
+               var title = '';
+               if(data[i] != null && data[i].title != null) {
+                    title = data[i].title;
+               }
+
                var postImage = extract(description,'img','src');
 
                /* the main slideViewer content */
                var slideContent = $('<div />')
                     .addClass("listwrapper");
 
+               /* Enable iScroll for certain devices */
+               if ((App.platform === 'android' && App.platformVersion >= 4) || (App.platform ==='ios' && (App.platformVersion>=5 && App.platformVersion <6))) {
+                    slideContent.scrollable(true);
+               } else {
+                    slideContent.scrollable();
+               };
+
                     var postSection = $('<div />')
                          .addClass('app-section')
-                         .css('text-align', 'center')
+                         .css('text-align', 'center').css('height','100%')
                          .append(loaderElem.clone());
 
                     var imageSection = $('<div />')
@@ -140,11 +156,13 @@ App.populator('home', function (page, data) {
                     var img = $('<img />')
                          .addClass('main-image');
 
+                         postSection.append(imageSection);
+
                          /* Show the loader until images are ready to be rendered & displayed */
                          img[0].onload = function() {
                               postSection.find(".loader").remove();
-                              imageSection.append(img);
-                              postSection.append(imageSection);
+                              imageSection.prepend(img);
+
                          };
 
                          img.attr('src', postImage);
@@ -154,7 +172,22 @@ App.populator('home', function (page, data) {
                               App.load('preview', data[slideViewer.page()]);
                          });
 
-               slideContent.append(postSection);
+                    var textSection = $('<div />')
+                    .addClass('title-bar-text');
+                    imageSection.append(textSection);
+
+
+                    textSection.html(title);
+
+
+                    var slideTitle = newTitle.clone();
+
+                    slideTitle.html("FU");
+
+                    postSection.append(slideTitle);
+
+
+               slideContent.scrollableNode().append(postSection);
                return slideContent[0];
           }
      }

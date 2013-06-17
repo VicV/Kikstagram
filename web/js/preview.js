@@ -22,7 +22,6 @@ App.populator('preview', function(page, params){
                isDone = true;
                App.load('search', App.getReverseTransition());
                App.removeFromStack(-1);
-
           } else {
           }
      });

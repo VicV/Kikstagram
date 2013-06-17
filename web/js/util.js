@@ -41,4 +41,4 @@ function removeFirst(input) {
 var getNthWord = function(string, n){
     var words = string.split(" ");
     return words[n-1];
-}
+};
