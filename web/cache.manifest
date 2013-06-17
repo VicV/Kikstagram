@@ -10,7 +10,6 @@ http://cdn.kik.com/cards/0/cards.js
 # zerver:js/main.min.js
 js/libs/zepto.js
 js/libs/app.js
-js/libs/jquery.ellipsis.js
 js/libs/photo-viewer.js
 js/libs/slide-viewer.js
 js/libs/analytics.js
