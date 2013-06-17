@@ -11,6 +11,7 @@ App.populator('search', function (page) {
 			App.dialog({title: "Empty search", text: "Please enter a tag"})
 			_gaq.push(['_trackEvent', 'Empty Search', 'Search']);
 		} else {				
+			lastPage=0;
 	        App.load('home', data, 'fade');
     	}
 	});
