@@ -5,6 +5,8 @@ App.populator('search', function (page) {
 		var input = p.find('.app-input.tag').val().toLowerCase().trim();
 		input = getNthWord(input,1);
 		input = removeFirst(input);
+		_gaq.push(['_trackEvent', 'Input', input]);
+
 		var data = { searchInput : input };
 		if (input == null || input.length == 0 || input == "" ) {
 			App.dialog({title: "Empty search", text: "Please enter a tag"})
