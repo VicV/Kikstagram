@@ -39,7 +39,7 @@ App.populator('preview', function(page, params){
 
           cards.kik.send({
                title: params.title,
-               text: 'New Kikstagram',
+               text: 'New #Kikstagram',
                pic: extract(params.description, 'img', 'src'),
                linkData: JSON.stringify(params)
           });
