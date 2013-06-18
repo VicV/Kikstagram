@@ -169,7 +169,7 @@ App.populator('home', function (page, data) {
 
                          img.clickable().on('click', function(){
 
-                              App.load('preview', data[slideViewer.page()]);
+                              App.load('preview', data[slideViewer.page()], 'fade');
                          });
 
                     var textSection = $('<div />')
@@ -181,8 +181,6 @@ App.populator('home', function (page, data) {
 
 
                     var slideTitle = newTitle.clone();
-
-                    slideTitle.html("FU");
 
                     postSection.append(slideTitle);
 

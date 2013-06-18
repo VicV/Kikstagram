@@ -157,7 +157,6 @@
 	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
 }
 
-
 .app-android .app-topbar .app-button {
 	padding: 0;
 }
@@ -169,7 +168,6 @@
 .app-android .app-topbar .app-button.rightLevel1{
 	right: 20%;
 	background-image: none;
-	color: #dde5ec;
 	width: 20%;
 }
 
@@ -191,6 +189,13 @@
 	box-shadow: -1px 0 #333 inset, 1px 0 #1c5380 inset;
 }
 
+.app-android .app-topbar .app-button[data-back].active{
+	color: white;
+	background-color: #3c3c3c;
+	border-left: 1px solid #1c5380;
+	box-shadow: -1px 0 #333 inset, 1px 0 #1c5380 inset;
+}
+
 .app-android .app-topbar .app-button.back{
 	color: white;
 	border-left: 1px solid #1c5380;
@@ -207,7 +212,7 @@
 
 	font-family: "Roboto";
 	font-weight: bold;
-	
+	padding-bottom: 7px;
 	background-color: black;
     word-wrap:break-all;	
     line-height: 120%;
