@@ -65,13 +65,13 @@ App.populator('home', function (page, data) {
                App.dialog({title:"No results for that tag", text: "Please try again"})
           }
 
-          p.find(".app-button.right.kik").click(function(){
+          p.find(".app-button.rightKik").click(function(){
 
                var k = slideViewer.page();
                
-               cards.kik.send({
-                    title: decodeSpecialChars(data[k].title),
-                    text: 'So funny it\'s UNREAL',
+                    cards.kik.send({
+                    title: data[k].title,
+                    text: 'New #Kikstagram',
                     pic: extract(data[k].description, 'img', 'src'),
                     linkData: JSON.stringify(data[k])
                });

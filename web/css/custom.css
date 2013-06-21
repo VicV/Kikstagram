@@ -150,6 +150,8 @@
 	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
 }
 
+
+
 .app-topbar .app-button.right.kik {
 	background-position:center;
 	background-repeat: no-repeat;
@@ -174,6 +176,37 @@
 .app-android .app-topbar .app-button.rightLevel2{
 	right: 40%;
 }
+
+.app-ios .app-topbar .app-button.rightLevel0.search {
+	width: 8%;
+	background-image: url(../img/search.png?inline=1);
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: auto 25px;
+}
+
+
+.app-topbar .app-button.rightKik {
+	right:13%;
+	width: 20%;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: auto 30px;
+	border-left: 1px solid #1c5380;
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
+}
+
+.app-ios .app-topbar .app-button.rightKik.active {
+	right:13%;
+	width: 20%;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: auto 30px;
+	border-left: 1px solid #1c5380;
+	box-shadow: -1px 0 #1c5380 inset, 1px 0 #333 inset;
+}
+
 
 .app-button.rightLevel0.search{
 	width: 13%;
