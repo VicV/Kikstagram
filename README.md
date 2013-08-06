@@ -8,6 +8,7 @@ All images are owned by Instagram
 
 Don't judge me, I'm doing this for fun, not instagram d:
 
+Note: Since forking from xKTSE's Kikur, its basically a different app now.
 
 ----------------
 
